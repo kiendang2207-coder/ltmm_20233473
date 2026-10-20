@@ -1,0 +1,11 @@
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Data and logs
+*.csv
+
+# OS generated files
+.DS_Store
+Thumbs.db
