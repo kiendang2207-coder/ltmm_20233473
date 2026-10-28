@@ -10,6 +10,8 @@ RTAPS = [
 ]
 
 # 100 phần tử mỗi bảng, giá trị 0 hoặc 1, theo đúng thứ tự i = 0..99
+# Đặc tả chỉ cho COMP0, COMP1 với i = 1..98 (clock_s không dùng i = 0 và 99),
+# hai vị trí đầu/cuối của COMP0, COMP1 để 0 cho đủ 100 phần tử.
 COMP0 = [
     0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1,
     0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
@@ -48,6 +50,6 @@ def validate():
     for name, tab in (("COMP0", COMP0), ("COMP1", COMP1), ("FB0", FB0), ("FB1", FB1)):
         assert len(tab) == 100, f"{name} phải có 100 phần tử, hiện có {len(tab)}"
         assert all(b in (0, 1) for b in tab), f"{name} chỉ chứa 0 hoặc 1"
-    assert len(RTAPS) > 0, "RTAPS đang trống"
+    assert len(RTAPS) == 50, f"RTAPS phải có 50 vị trí, hiện có {len(RTAPS)}"
     assert len(set(RTAPS)) == len(RTAPS), "RTAPS có phần tử trùng"
     assert all(0 <= t < 100 for t in RTAPS), "RTAPS phải nằm trong 0..99"
